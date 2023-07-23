@@ -17,14 +17,14 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QLabel, QLineEdit, QMainWindow, QMenuBar,
-    QPushButton, QSizePolicy, QSpacerItem, QStatusBar,
-    QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
+    QStatusBar, QVBoxLayout, QWidget)
 
 class Ui_repo_viewer(object):
     def setupUi(self, repo_viewer):
         if not repo_viewer.objectName():
             repo_viewer.setObjectName(u"repo_viewer")
-        repo_viewer.resize(735, 330)
+        repo_viewer.resize(735, 362)
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
         brush.setStyle(Qt.SolidPattern)
@@ -112,69 +112,9 @@ class Ui_repo_viewer(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.details_frame = QFrame(self.centralwidget)
-        self.details_frame.setObjectName(u"details_frame")
-        self.details_frame.setStyleSheet(u".QFrame{\n"
-"	border: 1px solid white;\n"
-"}")
-        self.details_frame.setFrameShape(QFrame.StyledPanel)
-        self.details_frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.details_frame)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.repo_details = QLabel(self.details_frame)
-        self.repo_details.setObjectName(u"repo_details")
-        self.repo_details.setStyleSheet(u"color:white;")
-        self.repo_details.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-
-        self.horizontalLayout_4.addWidget(self.repo_details)
-
-
-        self.gridLayout.addWidget(self.details_frame, 8, 0, 1, 1)
-
         self.verticalSpacer_2 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
         self.gridLayout.addItem(self.verticalSpacer_2, 0, 0, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout.addItem(self.verticalSpacer, 7, 0, 1, 1)
-
-        self.welcome_text = QLabel(self.centralwidget)
-        self.welcome_text.setObjectName(u"welcome_text")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.welcome_text.sizePolicy().hasHeightForWidth())
-        self.welcome_text.setSizePolicy(sizePolicy)
-
-        self.gridLayout.addWidget(self.welcome_text, 1, 0, 1, 1)
-
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(-1, 9, -1, -1)
-        self.username = QLabel(self.centralwidget)
-        self.username.setObjectName(u"username")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.username.sizePolicy().hasHeightForWidth())
-        self.username.setSizePolicy(sizePolicy1)
-        self.username.setMinimumSize(QSize(100, 0))
-
-        self.horizontalLayout.addWidget(self.username)
-
-        self.le_username = QLineEdit(self.centralwidget)
-        self.le_username.setObjectName(u"le_username")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.le_username.sizePolicy().hasHeightForWidth())
-        self.le_username.setSizePolicy(sizePolicy2)
-
-        self.horizontalLayout.addWidget(self.le_username)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout, 3, 0, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -192,9 +132,69 @@ class Ui_repo_viewer(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_2, 4, 0, 1, 1)
 
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(-1, 9, -1, -1)
+        self.username = QLabel(self.centralwidget)
+        self.username.setObjectName(u"username")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.username.sizePolicy().hasHeightForWidth())
+        self.username.setSizePolicy(sizePolicy)
+        self.username.setMinimumSize(QSize(100, 0))
+
+        self.horizontalLayout.addWidget(self.username)
+
+        self.le_username = QLineEdit(self.centralwidget)
+        self.le_username.setObjectName(u"le_username")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.le_username.sizePolicy().hasHeightForWidth())
+        self.le_username.setSizePolicy(sizePolicy1)
+
+        self.horizontalLayout.addWidget(self.le_username)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout, 3, 0, 1, 1)
+
         self.verticalSpacer_3 = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
         self.gridLayout.addItem(self.verticalSpacer_3, 2, 0, 1, 1)
+
+        self.scrollArea = QScrollArea(self.centralwidget)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setAutoFillBackground(True)
+        self.scrollArea.setStyleSheet(u"")
+        self.scrollArea.setFrameShape(QFrame.Box)
+        self.scrollArea.setFrameShadow(QFrame.Plain)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 715, 68))
+        self.scrollAreaWidgetContents.setAutoFillBackground(True)
+        self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.repo_details = QLabel(self.scrollAreaWidgetContents)
+        self.repo_details.setObjectName(u"repo_details")
+        self.repo_details.setMaximumSize(QSize(16777215, 16777215))
+        self.repo_details.setStyleSheet(u"color:white;")
+        self.repo_details.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+
+        self.verticalLayout.addWidget(self.repo_details)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.gridLayout.addWidget(self.scrollArea, 8, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 15, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_4, 5, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer, 7, 0, 1, 1)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -211,9 +211,15 @@ class Ui_repo_viewer(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_3, 6, 0, 1, 1)
 
-        self.verticalSpacer_4 = QSpacerItem(20, 15, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.welcome_text = QLabel(self.centralwidget)
+        self.welcome_text.setObjectName(u"welcome_text")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.welcome_text.sizePolicy().hasHeightForWidth())
+        self.welcome_text.setSizePolicy(sizePolicy2)
 
-        self.gridLayout.addItem(self.verticalSpacer_4, 5, 0, 1, 1)
+        self.gridLayout.addWidget(self.welcome_text, 1, 0, 1, 1)
 
         repo_viewer.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(repo_viewer)
@@ -223,6 +229,10 @@ class Ui_repo_viewer(object):
         self.statusbar = QStatusBar(repo_viewer)
         self.statusbar.setObjectName(u"statusbar")
         repo_viewer.setStatusBar(self.statusbar)
+        QWidget.setTabOrder(self.le_username, self.le_repo_name)
+        QWidget.setTabOrder(self.le_repo_name, self.pb_ok)
+        QWidget.setTabOrder(self.pb_ok, self.pb_cancel)
+        QWidget.setTabOrder(self.pb_cancel, self.scrollArea)
 
         self.retranslateUi(repo_viewer)
 
@@ -231,11 +241,11 @@ class Ui_repo_viewer(object):
 
     def retranslateUi(self, repo_viewer):
         repo_viewer.setWindowTitle(QCoreApplication.translate("repo_viewer", u"GitHub Repository Viewer", None))
-        self.repo_details.setText("")
-        self.welcome_text.setText(QCoreApplication.translate("repo_viewer", u"Please enter the GitHub 'Username' and 'Repo Name' to view it's details:", None))
-        self.username.setText(QCoreApplication.translate("repo_viewer", u"Username:", None))
         self.repo_name.setText(QCoreApplication.translate("repo_viewer", u"Repo Name:", None))
+        self.username.setText(QCoreApplication.translate("repo_viewer", u"Username:", None))
+        self.repo_details.setText("")
         self.pb_ok.setText(QCoreApplication.translate("repo_viewer", u"OK", None))
         self.pb_cancel.setText(QCoreApplication.translate("repo_viewer", u"Cancel", None))
+        self.welcome_text.setText(QCoreApplication.translate("repo_viewer", u"Please enter the GitHub 'Username' and 'Repo Name' to view it's details:", None))
     # retranslateUi
 
