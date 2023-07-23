@@ -6,8 +6,8 @@ from UI.repo_viewer_ui import Ui_repo_viewer
 from github import Github
 from github import Auth # Authentication is defined via github.Auth
 
-# Using an access token generated from my GitHub account
-auth = Auth.Token("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")
+# You must enter your own access token here
+auth = Auth.Token('')
 
 # Public Web Github allow us to view github users/repos
 github_access = Github(auth=auth)
